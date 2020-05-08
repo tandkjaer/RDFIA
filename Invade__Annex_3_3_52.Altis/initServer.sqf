@@ -43,13 +43,13 @@ missionsMinimumSpawnDistance = 1500;
 serverRestart = {
     diag_log "Server restart function was called by the mission";
 	private _serverpassword = [] call getServerPassword;
-	_serverpassword serverCommand "#shutdown"; 
+	_serverpassword serverCommand "#shutdown";
 };
 
 missionRestart = {
     diag_log "Mission restart function was called by the mission";
 	private _serverpassword = [] call getServerPassword;
-	_serverpassword serverCommand "#restart"; 
+	_serverpassword serverCommand "#restart";
 };
 
 delayedFunction = {
@@ -66,7 +66,7 @@ zeusModules = [zeus_1, zeus_2, zeus_3, zeus_4, zeus_5, zeus_6, zeus_7, zeus_8, z
 
 addMissionEventHandler ["HandleDisconnect", {
 		params ["_unit", "", "", "_name"];
-		if !( isNil {_unit getVariable 'zeusModule'} ) then{	
+		if !( isNil {_unit getVariable 'zeusModule'} ) then{
 			_zeus = _unit getVariable 'zeusModule';
 			unassignCurator (zeusModules select _zeus);
 		};
@@ -135,3 +135,7 @@ addMissionEventHandler ["HandleDisconnect", {
         }];
     } forEach allCurators;
 };
+
+	/*------------------- Restricted slots ------------------------------*/
+
+allowed = call compile preprocessFileLineNumbers "allowedIDs.txt";

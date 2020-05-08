@@ -104,7 +104,7 @@ class RscTitles
 {
     #include "scripts\vehicle\crew\namesleft.hpp"	// Occupants HUD for vehicles
 };
-	
+
 class CfgSounds {
     sounds[] = {};
     class derp_heartBeat1 {
@@ -131,7 +131,7 @@ class CfgSounds {
         titles[] = {0, ""};
     };
 };
-	
+
 //------------------------- Parameters
 
 class Params
@@ -240,7 +240,7 @@ class Params
         default = 8;
     };
 };
-	
+
 	/*------------------- security ------------------------------*/
 class CfgDisabledCommands
 {
@@ -265,4 +265,17 @@ class CfgDebriefing {
         subtitle = "You successfully captured all the AOs";
         description = "You successfully completed the mission by capturing all the AOs!";
     };
+};
+
+	/*------------------- Whitelist Pilot ------------------------------*/
+
+class CfgDebriefing
+{
+
+class NOT_ALLOWED
+{
+	title = "This is a reserved slot.";
+	description = "This is a reserved slot. Please rejoin using a different slot. Apply to get whitelistet";
+	picture = "";
+};
 };
